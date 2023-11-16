@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/all.css">
-    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link href="/webfonts/f " rel="stylesheet" />
+
     <title>Document</title>
 </head>
 <body>
@@ -14,8 +16,18 @@
             <div class="draw">
                 <div class="poll"></div>
                 <div class="img_food">
-                    <img src="/img/Food%20image%201.png" alt="food">
+                    <img src="/img/Food%20image%201.png" alt="food" id="rotateImage">
                 </div>
+                <script>
+                    let rotationAngle = 0;
+                    const rotationSpeed = 2; // You can adjust the rotation speed
+                    function rotateImage() {
+                        rotationAngle += rotationSpeed;
+                        document.getElementById('rotateImage').style.transform = `rotate(${rotationAngle}deg)`;
+                    }
+                    // Rotate the image every 50 milliseconds (adjust as needed)
+                    setInterval(rotateImage, 50);
+                </script>
             </div>
             <div class="top">
                 <div class="logo">
@@ -44,7 +56,7 @@
                            of the dish and all details</p>
                         <p class="total">Total Order : 85.30 <sub class="city">EGP</sub></p>
 
-                        <button class="order-now"><i class=" fa-solid fa-cart-shopping"></i>Order Now</button>
+                        <button class="order-now"><i class=" fa-solid fa-facebook"></i>Order Now</button>
                     </div>
                 </div>
                 <div class="right">
