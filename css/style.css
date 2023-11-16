@@ -17,7 +17,8 @@
 }
       /*header*/
 .header{
-    background-color: #F6F1EE;
+    /*background-color: #ED7D31;*/
+    background-image:url("/img/istockphoto-1173579665-612x612.jpg") ;
     height: 700px;
 }
 .header .draw .poll{
@@ -91,7 +92,21 @@
 .header .top .navbar .f_item{
     color: #ED7D31;
 }
-        /****************  middle   ***********************************/
+.header .top .icons a{
+    display: inline-block;
+    list-style: none;
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Inter, serif;
+}
+.header .top .icons{
+    margin-top: 30px;
+    text-align: right;
+}
+
+    /****************  middle   ***********************************/
 .header .content .middle{
     margin-top: 20px;
 }
@@ -157,4 +172,11 @@
     border-radius: 20px;
     font-size: 17px;
     font-family: Inter, serif;
+    cursor:pointer;
+}
+.header .content .middle .left .items .i_order
+{
+    color: #ED7D31;
+    font-size: 20px;
+    padding-right: 10px;
 }

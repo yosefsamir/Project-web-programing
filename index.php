@@ -44,7 +44,9 @@
                     <li><a href="#">Shop</a></li>
                 </ul>
                 <div class="icons">
-                    <i class="fa-solid fa-bars"></i>
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -59,7 +61,7 @@
                            of the dish and all details</p>
                         <p class="total">Total Order : 85.30 <sub class="city">EGP</sub></p>
 
-                        <button class="order-now"><i class="fa-solid fa-cart-shopping"></i>Order Now</button>
+                        <button class="order-now"><i class="fa-solid fa-cart-shopping i_order"></i>Order Now</button>
                     </div>
                 </div>
                 <div class="right">
