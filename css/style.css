@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+        /*general*/
+
+.content{
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+.clear{
+    clear: both;
+}
+      /*header*/
+.header{
+    background-color: #F6F1EE;
+    height: 700px;
+}
+.header .draw .poll{
+    width: 15%;
+    height: 700px;
+    background-color: #ED7D31;
+    position: absolute;
+    left: 70%;
+}
+.header .draw .img_food{
+    position: absolute;
+    margin-top: 120px;
+    top: 100%;
+    left: 60%;
+}
+.header .draw .img_food img{
+    width: 90%
+}
+.header .top{
+    padding: 15px;
+}
+.header .top h1{
+    display: inline-block;
+    padding-top: 15px;
+    font-family: Inter, sans-serif;
+    font-size: 49px;
+    letter-spacing: 22px;
+}
+.header .top .logo  .hp1{
+    color: #ED7D31;
+}
+.header .top .logo .hp2{
+    color: #4F4A45;
+}
+.header .top .logo .line
+{
+    width: 300px;
+    height: 5px;
+    background-color: #ED7D31;
+}
+.header .logo{
+    width: 40%;
+    float: left;
+}
+.header .navbar{
+    width: 40%;
+    float: left;
+    padding-top: 30px;
+}
+.header .top .icons{
+    width: 20%;
+    float: left;
+}
+.header .navbar li{
+    display: inline-block;
+    list-style: none;
+}
+
+.header .navbar li a{
+    color: #4F4A45;
+    text-decoration: none;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Inter, serif;
+}
+.header .navbar li a:hover
+{
+    color: #ED7D31;
+}
+.header .top .navbar .f_item{
+    color: #ED7D31;
+}
+        /****************  middle   ***********************************/
+.header .content .middle{
+    margin-top: 20px;
+}
+.header .content .middle .left{
+    width: 50%;
+    position: relative;
+    float: left;
+    height: 600px;
+    text-align: left;
+}
+.header .content .middle .right{
+    width: 50%;
+    float: left;
+    height: 600px;
+}
+.header .content .middle .left .items{
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    transform:translate(-50% , -50%);
+}
+.header .content .middle .left .items h1{
+    color: #000;
+    font-family: Inter, sans-serif;
+    font-size: 60px;
+}
+.header .content .middle .left .items h3{
+    display: inline-block;
+    font-size: 45px;
+    font-family: Arial, sans-serif , sans;
+    letter-spacing: 3px;
+}
+.header .content .middle .left .items .hp1
+{
+    color: #ED7D31;
+}
+.header .content .middle .left .items .p1
+{
+    padding-top: 10px;
+    font-size: 15px;
+    color: #4F4A45;;
+    font-family: Inter, serif;
+}
+.header .content .middle .left .items .total
+{
+    padding-top: 20px;
+    font-size: 30px;
+    font-family: Inter, serif;
+}
+.header .content .middle .left .items .total .city
+{
+    color: #4F4A45;
+}
+.header .content .middle .left .items .order-now
+{
+    margin-left: 110px;
+    margin-top: 60px;
+    width: 140px;
+    height: 40px;
+    flex-shrink: 0;
+    color: white;
+    background-color: black;
+    border-radius: 20px;
+    font-size: 17px;
+    font-family: Inter, serif;
+}
