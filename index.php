@@ -11,6 +11,9 @@
     <title>Document</title>
 </head>
 <body>
+    <script src="js/all.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+
     <div class="header">
         <div class="content">
             <div class="draw">
@@ -56,7 +59,7 @@
                            of the dish and all details</p>
                         <p class="total">Total Order : 85.30 <sub class="city">EGP</sub></p>
 
-                        <button class="order-now"><i class=" fa-solid fa-facebook"></i>Order Now</button>
+                        <button class="order-now"><i class="fa-solid fa-cart-shopping"></i>Order Now</button>
                     </div>
                 </div>
                 <div class="right">
