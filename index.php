@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="/css/all.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link href="/webfonts/f " rel="stylesheet" />
-
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
     <script src="js/all.js"></script>

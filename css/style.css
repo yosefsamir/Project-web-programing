@@ -7,6 +7,8 @@
 }
         /*general*/
 
+
+
 .content{
     width: 80%;
     margin: auto;
@@ -16,11 +18,7 @@
     clear: both;
 }
       /*header*/
-.header{
-    /*background-color: #ED7D31;*/
-    background-image:url("/img/istockphoto-1173579665-612x612.jpg") ;
-    height: 700px;
-}
+
 .header .draw .poll{
     width: 15%;
     height: 700px;
@@ -160,7 +158,7 @@
 {
     color: #4F4A45;
 }
-.header .content .middle .left .items .order-now
+.content .middle .left .items .order-now
 {
     margin-left: 110px;
     margin-top: 60px;
