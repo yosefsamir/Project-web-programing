@@ -13,7 +13,6 @@
 <body>
     <script src="js/all.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
-
     <div class="header">
         <div class="content">
             <div class="draw">
@@ -23,13 +22,13 @@
                 </div>
                 <script>
                     let rotationAngle = 0;
-                    const rotationSpeed = 2; // You can adjust the rotation speed
+                    const rotationSpeed = 1.2; // You can adjust the rotation speed
                     function rotateImage() {
                         rotationAngle += rotationSpeed;
                         document.getElementById('rotateImage').style.transform = `rotate(${rotationAngle}deg)`;
                     }
                     // Rotate the image every 50 milliseconds (adjust as needed)
-                    setInterval(rotateImage, 50);
+                    setInterval(rotateImage, 25);
                 </script>
             </div>
             <div class="top">
