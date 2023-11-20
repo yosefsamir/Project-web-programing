@@ -5,13 +5,13 @@ body {
 }
 .header .top .navbar .f_item{
     color: #4F4A45;
-}
+}   
 .log-in-form{
     position: absolute;
     top: 20%;
     left: 37%;
     width: 350px;
-    height:75vh;
+    height:77vh;
     background-color: #ED7D31;
     border-radius: 10px;
     /* margin-top: 8%;
@@ -75,6 +75,7 @@ input[type='submit']{
 
 .sign-up-page {
     color: white;
+    padding-left: 20px;
 }   
 .sign-up-page a{
     color: black;
