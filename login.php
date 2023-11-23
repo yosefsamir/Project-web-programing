@@ -1,14 +1,55 @@
+<?php
+    session_start();
+    include "connection.php";
+    include "functions.php";
+    if(isset($_POST['submit']))
+    {
+        $phone_number = sanitizePhoneNumber($_POST["phone_number"]);
+        $password   =  filter_var($_POST["password"] , FILTER_SANITIZE_STRING);
+        if(empty($phone_number) || empty($password))
+        {
+            echo "insert all input in form";
+        }
+        else
+        {
+            $done = "SELECT * FROM clients WHERE phone = '$phone_number'";
+            $q=$conn->prepare($done);
+            $q->execute();
+            $data=$q->fetch();
+            if(!$data)
+            {
+                echo "error in email or password";
+            }
+            else
+            {
+                $password_hash = $data['password'];
+                if(!password_verify($password , $password_hash))
+                {
+                    echo "error in email or password";
+                }
+                else
+                {
+                    $_SESSION['user'] = [
+                        "name" =>$data['first_name'],
+                        "phone"=>$phone_number,
+                    ];
+                    header("location:index.php");
+                }
+            }
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>page</title>
+    <title>login</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/all.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link href="/webfonts/f " rel="stylesheet" />
     <link rel="stylesheet" href="css/login.css">
-
 </head>
 <body>
 <style>
@@ -56,24 +97,24 @@
     <br>
     <form action="" method="post">
         <div class="input-data">
-            <input type="email" required placeholder=" Email Address" class="email-input">
+            <input type="tel" required placeholder="phone" class="email-input" name = "phone_number">
         </div>
         <br>
         <br>
         <div class="input-data">
-            <input type="password" required placeholder=" Password" class="password-input">
+            <input type="password" required placeholder=" Password" class="password-input" name = "password">
         </div>
         <br><br>
-        <input type="submit" value="Login"  class="submit-btn">
+        <input type="submit" value="Login"  class="submit-btn" name="submit">
         <br><br>
 
         <div class="forgot-password">
-            <a href="/forgot-password.html">Forgot Password?</a>
+            <a href="#">Forgot Password?</a>
         </div>
         <br>
         <br>
         <div class="sign-up-page">
-            Don't have an account?<a href="sign-up.html">Register here!</a>
+            Don't have an account?<a href="sign-up.php">Register here!</a>
         </div>
     </form>
 </div>  

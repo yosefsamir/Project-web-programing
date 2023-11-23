@@ -160,15 +160,13 @@
 }
 .content .middle .left .items .order-now
 {
-    margin-left: 110px;
-    margin-top: 60px;
-    width: 140px;
+    margin-top: 50px;
+    width: 300px;
     height: 40px;
-    flex-shrink: 0;
     color: white;
     background-color: black;
     border-radius: 20px;
-    font-size: 17px;
+    font-size: 20px;
     font-family: Inter, serif;
     cursor:pointer;
 }
@@ -177,4 +175,12 @@
     color: #ED7D31;
     font-size: 20px;
     padding-right: 10px;
+}
+.content .middle .left .items .user
+{
+    display: inline-block;
+    margin-left: 60px;
+    color: #4F4A45;
+    font-size: 25px;
+    font-weight: bold;
 }

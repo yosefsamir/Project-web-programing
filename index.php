@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,8 +47,14 @@
                 </ul>
                 <div class="icons">
                     <a href="#"><i class="fa-solid fa-phone"></i></a>
-                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <?php
+                        if(isset($_SESSION['user']))
+                            echo '<a href="end_session.php"><i class="fa-solid fa-user"></i></a>';
+                        else
+                            echo '<a href="login.php"><i class="fa-solid fa-right-from-bracket"></i></a>';
+
+                    ?>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -59,7 +69,12 @@
                            of the dish and all details</p>
                         <p class="total">Total Order : 85.30 <sub class="city">EGP</sub></p>
 
-                        <button class="order-now"><i class="fa-solid fa-cart-shopping i_order"></i>Order Now</button>
+                        <button class="order-now"><i class="fa-solid fa-cart-shopping i_order"></i>Order Now <?php
+                            if(isset($_SESSION['user']))
+                                echo $_SESSION['user']['name'];
+                            else
+                                echo "client";
+                            ?></p></button>
                     </div>
                 </div>
                 <div class="right">
