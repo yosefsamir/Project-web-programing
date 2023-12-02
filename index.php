@@ -19,10 +19,12 @@ session_start();
     <div class="header">
         <div class="content">
             <div class="draw">
-                <div class="poll"></div>
-                <div class="img_food">
-                    <img src="/img/Food%20image%201.png" alt="food" id="rotateImage">
+                <div class="poll">
+                    <div class="img_food">
+                        <img src="/img/Food%20image%201.png" alt="food" id="rotateImage">
+                    </div>
                 </div>
+
                 <script>
                     let rotationAngle = 0;
                     const rotationSpeed = 1.2; // You can adjust the rotation speed
@@ -81,6 +83,53 @@ session_start();
                 </div>
             </div>
         </div>
+    </div>   <!--header-->
+
+        <!--section header-->
+<!--    <div class="sectionHeader">-->
+<!--        <div class="content">-->
+<!--            <h2 class="sectionTitle">the best recommended</h2>-->
+<!--            <span class="line"></span>-->
+<!--        </div>-->
+<!--    </div>-->
+        <!--section recommended-->
+    <div class="recommended pd-y">
+        <div class="sectionHeader">
+            <div class="content">
+                <h2 class="sectionTitle">the best recommended</h2>
+                <span class="line"></span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="recommend-content">
+
+                <div class="recommend-item">
+                    <img src="/img/img-order.png" class="imgOrder" alt="imgOrder">
+                    <h3 class="name-food">Dish name</h3>
+                    <p class="description">fresh and tasty dish here will be all the components of the dish and all details</p>
+                    <p class="price">85.30 <sub class="city">EGP</sub></p>
+                    <button class="btn-order" type="submit">Order Now</button>
+                </div>
+                <div class="recommend-item mg">
+                    <img src="/img/img-order3.png" class="imgOrder" alt="imgOrder">
+                    <h3 class="name-food">Dish name</h3>
+                    <p class="description">fresh and tasty dish here will be all the components of the dish and all details</p>
+                    <p class="price">85.30 <sub class="city">EGP</sub></p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+                <div class="recommend-item">
+                    <img src="/img/img-order2.png" class="imgOrder" alt="imgOrder">
+                    <h3 class="name-food">Dish name</h3>
+                    <p class="description">fresh and tasty dish here will be all the components of the dish and all details</p>
+                    <p class="price">85.30 <sub class="city">EGP</sub></p>
+                    <button class="btn-order">Order Now</button>
+                </div>
+                <div class="clear"></div>
+
+
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
