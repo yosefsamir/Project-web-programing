@@ -8,8 +8,8 @@ use function PHPSTORM_META\type;
     $dbName = "restaurant_project";
     $conn = mysqli_connect($dbHost,$dbUser , $dbPass , $dbName);
 ?>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -50,56 +50,58 @@ use function PHPSTORM_META\type;
         </div>
     </div>
 </div>
-<!-- products -->
-<!-- table -->
 <table class="table table-hover ml-4 mr-4">
     <thead>
     <tr>
-        <th scope="col">order id</th>
-        <th scope="col">Client Name </th>
-        <th scope="col">phone number</th>
-        <th scope="col">address</th>
-        <th scope="col">total price </th>
-        <th scope="col">order time </th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">quantity</th>
+        <th scope="col">price</th>
         
     </tr>
     </thead>
     <tbody>
-    <?php
-    $sql = "SELECT * FROM orders";
-    $data = mysqli_query($conn, $sql);
+        
+        <?php
+if (isset($_GET['order_id'])) {
+    $order_id = $_GET['order_id'];
+    $sql = "SELECT * FROM details_order WHERE id_order = $order_id";
+    $result = mysqli_query($conn, $sql);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        $orderDetails = mysqli_fetch_all(
+            $result,
+            MYSQLI_ASSOC 
+        );
+        $total_price = 0; 
+        
+        foreach ($orderDetails as $detail) {
+            $name = $detail['name'];
+            $category = $detail['category'];
+            $quant = $detail['quantity'];
+            $pri = $detail['price'] ;
 
-    if ($data) {
-        foreach ($data as $row) {
-            $id_client = $row["id_client"];
-            $sql_user = "SELECT first_name, last_name, phone FROM clients WHERE id_client = $id_client";
-            $user_result = mysqli_query($conn, $sql_user);            
-            if ($user_result) {
-                $user = mysqli_fetch_assoc($user_result);
-                $user_fullname = $user["first_name"] . " " . $user["last_name"];
-                $phone_number = $user["phone"];  
-            }
-            $time_order = $row['time_order'];
-            $payment_method = $row['payment_method'];
-            $total_price = $row['total_price'];
-            $order_id = $row["id_order"];
-            $address = $row["address"];
-            $order_time = $row["time_order"];
-            $order_details_link = "order-details.php?order_id=$order_id";
-
-            echo "<tr>
-                <td><a href='$order_details_link'>$order_id</a></td>
-                <td>$user_fullname</td>
-                <td>$phone_number</td>
-                <td>$address</td>
-                <td>$total_price</td>
-                <td>$order_time</td>
-                </tr>";
+            echo " <tr>
+            <td> $name   </td>
+            <td> $category   </td>
+            <td> $quant  </td>
+            <td> $pri </td>
+            </tr>";
+            $total_price += $detail['price']; 
+            
         }
+        echo " <tr>
+            <td>  </td>
+            <td>   </td>
+            <td>  </td>
+            <td> $total_price</td>
+            </tr>";
     }
-    ?>
+    mysqli_close($conn);
+}
+?>
 </tbody>
 
-</table>
+
 </body>
 </html>
