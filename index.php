@@ -10,7 +10,6 @@ session_start();
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/all.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <link href="/webfonts/f " rel="stylesheet" />
     <title>Home</title>
 </head>
 <body>
