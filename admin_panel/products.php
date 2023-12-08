@@ -1,13 +1,39 @@
+<?php
+    $dbHost = "localhost";
+    $dbUser = "root";
+    $dbPass = "";
+    $dbName = "restaurant_project";
+    $conn = mysqli_connect($dbHost,$dbUser , $dbPass , $dbName);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/control%20style%20product.css">
+    <link rel="stylesheet" href="../css/controlstyleproduct.css">
     <link rel="stylesheet" href="../css/all.css">
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/http_code.jquery.com_jquery-3.6.0.js"></script>
+    <script src="../js/http_cdnjs.cloudflare.com_ajax_libs_popper.js_2.10.2_umd_popper.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <style>
+        /* Customize the color of the primary button */
+        .btn-primary{
+            background-color: #ED7D31;
+            border-color: #ED7D31;
+        }
+        /* Customize the color of the primary button on hover */
+        .btn-primary:hover  , .btn-primary:active , .btn-primary:focus{
+            background-color: #d97d43;
+            border-color: #d97d43;
+        }
+        .btn-success{
+            width: 200px;
+        }
+    </style>
     <title>Products</title>
 </head>
     <body>
@@ -30,9 +56,9 @@
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
                         <?php
                         if(isset($_SESSION['user']))
-                            echo '<a href="end_session.php"><i class="fa-solid fa-user"></i></a>';
+                            echo '<a href="../end_session.php"><i class="fa-solid fa-user"></i></a>';
                         else
-                            echo '<a href="login.php"><i class="fa-solid fa-right-from-bracket"></i></a>';
+                            echo '<a href="../login.php"><i class="fa-solid fa-right-from-bracket"></i></a>';
                         ?>
                     </div>
                     <div class="clear"></div>
@@ -40,11 +66,10 @@
             </div>
         </div>
         <!-- products -->
-        <!-- add product btn -->
-        <a type="button" class="btn btn-success ml-5 " href="add_product.php" data-mdb-ripple-init > Add Product</a>
-        
         <!-- table -->
-
+    <div class="content" style="width: 90%">
+        <!-- add product btn -->
+        <a type="button" class="btn btn-success ml-5 " href="add_product.php " , style="margin-bottom:30px " data-mdb-ripple-init > Add Product</a>
       <table class="table table-hover ml-4 mr-4">
         <thead>
           <tr>
@@ -58,27 +83,56 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>shawrma</td>
-            <td>dlakfkdkkafoskaf</td>
-            <td><img src="../img/img-order.png" alt="" width="100" height="100"></td>
-            <td>pizzs</td>
-            
-            <td>dlakfkdkkafoskaf</td>
-            <td><button type="button" class="btn btn-info" data-mdb-ripple-init>Edit</button> <button type="button" class="btn btn-danger" data-mdb-ripple-init>Danger</button></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td><img src="../img/img-order3.png" alt="" width="100" height="100"></td>
-
-            <td>@fat</td>
-            <td>Thornton</td>   
-            <td><button type="button" class="btn btn-info" data-mdb-ripple-init>Edit</button> <button type="button" class="btn btn-danger" data-mdb-ripple-init>Danger</button></td>
-
-          </tr>
+        <?php
+        $sql = "SELECT * FROM prouducts ";
+        $data = mysqli_query($conn , $sql);
+        if ($data)
+        {
+            $counter = 1;
+            foreach ($data as $row)
+            {
+                $id = $row['id_product'];
+                $name = $row['name'];
+                $desc = $row['description'];
+                $price = $row['price'];
+                $category = $row['category'];
+                $img = $row['img'];
+                echo "<tr>
+                            <td>$counter</td>
+                            <td>$name</td>
+                            <td>$desc</td>
+                            <td>
+                            <img src='..\upload_img/$img' alt='food' width='120' height='120'>
+                            </td>
+                            <td>$category</td>
+                            <td>$price</td>
+                            <td>
+                            <a href='update_product.php?update=$id' class='btn btn-info'>Update</a>
+                            <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#exampleModalCenter_$id' style='color: white'>Delete</button>
+                            <div class='modal fade' id='exampleModalCenter_$id' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+                            <div class='modal-dialog modal-dialog-centered' role='document'>
+                                <div class='modal-content'>
+                                    <div class='modal-header'>
+                                        <h5 class='modal-title' id='exampleModalLongTitle'>Are you sure to delete this product ? </h5>
+                                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                            <span aria-hidden='true'>&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class='modal-body'>
+                                    </div>
+                                    <div class='modal-footer'>
+                                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                                        <a type='button' class='btn btn-primary' style='color: white' href='deleteItem.php?id=$id'>Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            </td>
+                      </tr>";
+                $counter++;
+            }
+        }
+        ?>
         </tbody>
       </table>
     </body>

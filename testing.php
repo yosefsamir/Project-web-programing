@@ -1,1 +1,0 @@
-<img src="img/istockphoto-1173579665-612x612.jpg" width="1920" height="1080">

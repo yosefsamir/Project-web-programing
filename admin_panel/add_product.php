@@ -1,3 +1,52 @@
+<?php
+
+    $dbHost = "localhost";
+    $dbUser = "root";
+    $dbPass = "";
+    $dbName = "restaurant_project";
+    $conn = mysqli_connect($dbHost,$dbUser , $dbPass , $dbName);
+     // insert product
+    if (isset($_POST["submit"]))
+    {
+        $name = $_POST["name"];
+        $description = $_POST["description"];
+        $price = $_POST["price"];
+        $category = $_POST["category"];
+        if($_FILES["image"]["error"] === 4)
+        {
+            echo "<script> alert('Image Does Not Exist')</script>";
+        }
+        else{
+            $fileName = $_FILES["image"]["name"];
+            $fileSize = $_FILES["image"]["size"];
+            $tmpName = $_FILES["image"]["tmp_name"];
+            $validEX = ['jpg' , 'jpeg' , 'png'];
+            $imageEX = explode('.' , $fileName);
+            $imageEX = strtolower(end($imageEX));
+            if(!in_array($imageEX , $validEX))
+            {
+                echo "<script> alert('Invalid Image Extension')</script>";
+            }
+            else if($fileSize > 1000000)
+            {
+                echo "<script> alert('Image Size Is too large')</script>";
+            }
+            else
+            {
+                $newImageName = uniqid();
+                $newImageName .= '.' . $imageEX;
+                move_uploaded_file($tmpName , '..\upload_img/' . $newImageName);
+                $sql = "INSERT INTO prouducts (name , description , price , category , img) VALUES ('$name' , '$description' , '$price' , '$category' , '$newImageName')";
+                mysqli_query($conn ,$sql);
+                echo "<script> alert('Successfully Added')</script>";
+                header("location:products.php");
+            }
+
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +58,7 @@
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="add.css">
-    <title>Products</title>
+    <title>Add Products</title>
 </head>
 <body>
 <script src="../js/all.js"></script>
@@ -39,26 +88,41 @@
             <div class="clear"></div>
         </div>
     </div>
-    <div class="add-form">
-        <form action="add_product.php" method="POST">
-        <div class="add-product">
-            <input type="text" name="name" id="name" placeholder="Product Name"><br><br>
-            <textarea name="Description" id="" cols="30"  placeholder="Description" rows="5"></textarea><br>
-            <input type="text" name="price" id="price" placeholder="price"><br><br>
-            <input type="file" placeholder="Product Image"><br><br>
-            <select name="" id="">
-                <option value="Pizza">Pizza</option>
-                <option value="Meal">Meal</option>
-                <option value="Burger">Burger</option>
-                <option value="more">more</option>
-            </select>
-            <br><br>
-            <button type="button" class="btn btn-success" data-mdb-ripple-init>Add Product</button>
-
-        </div>
-    </form>
-    </div>
-    
 </div>
+
+    <div class="content">
+        <h3 style="color: #4F4A45">Add Product</h3>
+        <form method="post" action="" enctype="multipart/form-data">
+            <div class="add-form my-5">
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" placeholder="Name product" name="name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <input type="text" class="form-control" placeholder="description  product" name="description">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Price</label>
+                    <input type="text" class="form-control" placeholder="Price  product" name="price">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Img</label>
+                    <input type="file"  name="image" id ="image" accept=".png , .jpg , .jpeg">
+                </div>
+                <div class="mb-3">
+                    <label class="form-select" style="padding: 20px">Category</label>
+                        <select class="form-label form-select-lg mb-3" name="category" required>
+                                    <option selected> Open this category menu </option>
+                                    <option value="Pizza">Pizza</option>
+                                    <option value="Meal">Meal</option>
+                                    <option value="Burger">Burger</option>
+                                    <option value="more">more</option>
+                        </select>
+                </div>
+                <button type="submit" class="btn btn-success my-lg-3" name="submit">Add Product</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
