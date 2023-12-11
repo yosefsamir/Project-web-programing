@@ -7,6 +7,9 @@
 }
         /*general*/
 
+body{
+    background-image: url("img/Shape.png");
+}
 .content{
     width: 80%;
     margin: auto;

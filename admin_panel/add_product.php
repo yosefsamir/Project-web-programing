@@ -27,10 +27,6 @@
             {
                 echo "<script> alert('Invalid Image Extension')</script>";
             }
-            else if($fileSize > 1000000)
-            {
-                echo "<script> alert('Image Size Is too large')</script>";
-            }
             else
             {
                 $newImageName = uniqid();

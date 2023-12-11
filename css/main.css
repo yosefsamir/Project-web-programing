@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', serif;
+     
+}
+body{
+    
+    background-image: url("Shape.png");
+}
+
+a {
+    width: 100%;
+    font-weight: 100%;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    mix-blend-mode: darken;
+    display: block;
+    /* padding: 5px 100px; */
+    padding: 5px 100px;
+
+}
+
+header {
+    width: 73%;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.header_list{
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 0px;
+    width:auto;
+    background-color: #FAFAFA;
+    list-style: none;
+    padding: 20px 5px 15px 10px;
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+    font-family:"Inter" ;
+}
+
+.header_list li {
+    background-color: #f6cfb4;
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 20px;
+}
+
+
+.header_list li:hover {
+    transition: all .5s ease 0s;
+
+    background-color: #ED7D31;
+}
+
+/* ################################################################# */
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    ASIDE BAR   ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+aside {
+    width: 26%;
+    padding: 13px 5px 10px ;
+    position: fixed;
+    top: 0;
+    margin-left: 74%;
+    margin-top: 7px;
+   
+
+}
+
+
+.top {
+    width: auto;
+    background-color: #FAFAFA;
+    list-style: none;
+    padding: 10px 35px 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+
+    
+
+}
+
+.top li {
+    mix-blend-mode: darken;
+}
+
+.name,
+.hello_user {
+    font-size: xx-large;
+}
+
+
+
+.account {
+    font-size: x-large;
+    position: absolute;
+    top: 0;
+    margin-top: 9%;
+    margin-left: 50%;
+    mix-blend-mode: darken;
+
+}
+
+.open {
+    color: green;
+
+    list-style:square;       
+    margin: 0px 2px 10px 15px;
+
+}
+#res{
+    color: #ED7D31;
+}
+#to{
+    color: #4F4A45;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #@@@@@@@@@@@@@@ */
+
+
+.middel {
+    width: auto;
+    padding: 10px ;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 5px 10px 7px;
+    background-color: #FAFAFA;
+    list-style: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+
+}
+ 
+.list_middel {
+
+    width: auto;
+    border-radius: 40px;
+    mix-blend-mode: darken;
+    margin: auto;
+
+    padding: 10px 10px 1px 5px;
+}
+
+
+#selectfiled {
+    width: auto;    
+    padding:10px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 10px;
+    border: solid #B4B4B3;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+#selectfiled i {
+    width: 12px;
+}
+
+#list {
+    width: 100%;
+    background: #dddddd;
+    overflow: hidden;
+    
+    border-radius: 40px;
+    padding: 10px;
+    
+
+}
+
+.options {
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5px 0px 5px 10px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.options i {
+    width: 25px;
+    top: 12px;
+    left: 25px;
+    mix-blend-mode: darken
+ } 
+
+.options:hover {
+    background:#ED7D31;
+    transition: all .25s ease 0s;
+
+}
+
+.hide {
+
+display: none;}
+
+#resto {
+    mix-blend-mode: darken
+}
+
+#selecttext {
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    mix-blend-mode: darken
+}
+
+#icon1 {
+    mix-blend-mode: darken
+}
+
+
+
+
+
+
+
+
+
+
+/*  ayman $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
+#add{
+    width: 100%;
+    padding: 10px 10px 10px 0px;
+    mix-blend-mode: darken;
+
+}
+
+
+.address{
+    
+    width: 100%;
+    margin-left: 8px;
+    padding: 15px;
+    border-radius: 40px;
+    /* border: solid #B4B4B3; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+
+}
+
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ cart $$$$$$$$$$$$$$$$$$$$$$ */
+
+
+
+
+.order-container {
+    margin: 20px 0px 10px 7px;
+    background-color: #FAFAFA;
+    list-style: none;
+    padding: 10px 20px ;
+    border-radius: 30px;
+  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+
+
+}
+
+.order-container li {
+    mix-blend-mode: darken;
+    padding: 5px;
+    margin: 5px 90px 5px 5px;
+    list-style: none;
+
+}
+.order_titel{
+ 
+  padding: 20px;
+  width: 350px;
+  text-align: center; 
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom:solid #B4B4B3
+}
+.order{
+    
+    padding: 5px;
+}
+.total{
+    
+    border-top:solid #B4B4B3;
+   
+    
+}
+#tot{
+  
+padding-top: 0%;
+  color: #000;
+  font-weight: bold;
+  font-size: larger;  
+  
+}
+.result{
+    display: inline-block;
+    margin-left: 60%;
+    
+}
+#tax{
+    display: inline-block;
+    margin-left: 70%;
+    
+}
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ cart $$$$$$$$$$$$$$$$$$$$$$ */
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    ASIDE BAR   ! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+
+
+/* ########################################################### */
+.section_of_meals {
+    
+    margin: 0px 0px 5px 0px;
+    padding:0px 25px 5px 25px;    
+    width: 73%;
+
+}
+
+
+
+.title { 
+
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    padding: 15px 30px 0px 20px;
+    mix-blend-mode: darken; 
+}
+.title span{
+
+padding: 10px ;    
+mix-blend-mode: darken;
+
+
+}
+.title span:hover {
+    border-radius: 30px;
+
+    transition: all .3s ease 0s;
+
+    background-color: #ED7D31;
+}
+
+/* ##########################################################################################33 */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ####################################################################################################### */
+

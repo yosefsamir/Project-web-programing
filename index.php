@@ -9,6 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/all.css">
+    <link href="menu">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <title>Home</title>
 </head>
@@ -43,7 +44,7 @@ session_start();
                 </div>
                 <ul class="navbar">
                     <li><a class="f_item"  href="#">Home</a></li>
-                    <li><a href="#">menu</a></li>
+                    <li><a href="menu.php">menu</a></li>
                     <li><a href="#">Shop</a></li>
                 </ul>
                 <div class="icons">
