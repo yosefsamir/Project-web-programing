@@ -26,6 +26,11 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="/css/menu.css">
     <script src="/js/http_code.jquery.com_jquery-3.6.0.js"></script>
+    <script>
+        function redirectToSignIn() {
+            window.location.href = 'login.php';
+        }
+    </script>
 </head>
 <body>
     <script src="js/all.js"></script>
@@ -132,9 +137,6 @@
             </ul>
             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
             <script>
-                function redirectToSignIn() {
-                    window.location.href = 'login.php';
-                }
                 function addToCart(id_food) {
                     var idClient = <?php echo $id?>;
                     $.ajax({
@@ -144,7 +146,6 @@
                         dataType: "json",
                         success: function (response) {
                             console.log(response);
-
                             $("#cartContent").load(location.href + " #cartContent");
                         }
                     });
@@ -231,10 +232,17 @@
                             <p class='description'>$description </p>
                             <p class='price'>$price<sub class='city'>EGP</sub></p>
                         ";
-                        if([$_SESSION['user']] !== null)
+                        if(isset($_SESSION['user']))
                         {
                             echo "
                              <button id='addToCartButton' class='btn-order' type='submit' onclick='addToCart($id_food)'>Order Now</button>    
+                             </div>
+                            ";
+                        }
+                        else
+                        {
+                            echo "
+                             <button id='addToCartButton' class='btn-order' type='submit'>Order Now</button>    
                              </div>
                             ";
                         }
