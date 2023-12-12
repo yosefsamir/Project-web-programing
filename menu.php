@@ -5,6 +5,14 @@
     $dbPass = "";
     $dbName = "restaurant_project";
     $conn = mysqli_connect($dbHost,$dbUser , $dbPass , $dbName);
+    if(isset($_SESSION['user']))
+    {
+        $phone = $_SESSION['user']['phone'];
+        $sql = "SELECT id_client FROM clients WHERE  phone = '$phone'";
+        $result = mysqli_query($conn , $sql);
+        $row = mysqli_fetch_assoc($result);
+        $id = $row['id_client'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +25,7 @@
     <title>menu</title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="/css/menu.css">
+    <script src="/js/http_code.jquery.com_jquery-3.6.0.js"></script>
 </head>
 <body>
     <script src="js/all.js"></script>
@@ -119,41 +128,77 @@
 
                         }
                     }
-
                 </script>
-
-
-
-
-
-                
             </ul>
-
             <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+            <script>
+                function redirectToSignIn() {
+                    window.location.href = 'login.php';
+                }
+                function addToCart(id_food) {
+                    var idClient = <?php echo $id?>;
+                    $.ajax({
+                        type: "GET",
+                        url: "add_product_cart.php",
+                        data: { id: idClient, id_food: id_food },
+                        dataType: "json",
+                        success: function (response) {
+                            console.log(response);
 
+                            $("#cartContent").load(location.href + " #cartContent");
+                        }
+                    });
+                    return false;
+                }
+                $(document).ready(function () {
+                    $("#addToCartButton").click(function () {
+                        addToCart();
+                    });
+                });
+            </script>
             <div class="order-container">
                 <div class="order_titel">
+                    <i class="fa-solid fa-cart-shopping cart"></i>
                     <span id="ur-order">Your Order</span>
                 </div>
 
                 <div class="order">
-                    <ul>
-                        <li>1x Chicken Meal</li>
-                        <li>2x Pasta meal</li>
+                    <ul id="cartContent">
+                        <?php
+                            if(!isset($_SESSION['user']))
+                            {
+                                echo "<button class='signInOrder' onclick='redirectToSignIn()'>sign in</button>";
+                            }
+                            else
+                            {
+                                $sql = "SELECT * FROM cart_client WHERE id_client = $id";
+                                $result = mysqli_query($conn, $sql);
+
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $id_product = $row["id_product"];
+                                    $quantity = $row["quantity"];
+                                    $sql = "SELECT name FROM prouducts WHERE id_product = $id_product";
+                                    $result_product = mysqli_query($conn , $sql);
+                                    $product_row = mysqli_fetch_assoc($result_product);
+                                    $name = $product_row["name"];
+                                    echo "<p class='details'>$quantity x $name</p>";
+                                }
+                            }
+                        ?>
                     </ul>
                     <div class="total">
                         <ul>
                             <li><span id="tot">Tax :</span>
-                                <sapn id="tax">8%</sapn>
+                                <sapn id="tax"></sapn>
                             </li>
-                            <li><span id="tot">Total : </span> <sapn class="result">200</sapn>
+                            <li><span id="tot">Total : </span> <sapn class="result"></sapn>
                             </li>
                         </ul>
                     </div>
                 </div>
-
+            </div>
         </nav>
-        </div>
+
 
     </aside>
     <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
@@ -174,6 +219,7 @@
             $result = mysqli_query($conn , $sql);
             while ($row = mysqli_fetch_assoc($result))
             {
+                $id_food = $row['id_product'];
                 $name = $row['name'];
                 $description = $row['description'];
                 $img = $row['img'];
@@ -184,9 +230,14 @@
                             <h3 class='name-food'>$name</h3>
                             <p class='description'>$description </p>
                             <p class='price'>$price<sub class='city'>EGP</sub></p>
-                            <button class='btn-order' type='submit'>Order Now</button>    
-                        </div>
-                ";
+                        ";
+                        if([$_SESSION['user']] !== null)
+                        {
+                            echo "
+                             <button id='addToCartButton' class='btn-order' type='submit' onclick='addToCart($id_food)'>Order Now</button>    
+                             </div>
+                            ";
+                        }
             }
         }
         else
@@ -203,22 +254,28 @@
             ";
                 $sql = "SELECT * FROM prouducts WHERE category = '$cat'";
                 $result = mysqli_query($conn , $sql);
-                while ($row = mysqli_fetch_assoc($result))
-                {
-                    $name = $row['name'];
-                    $description = $row['description'];
-                    $img = $row['img'];
-                    $price = $row['price'];
-                    echo "
+            while ($row = mysqli_fetch_assoc($result))
+            {
+                $id_food = $row['id_product'];
+                $name = $row['name'];
+                $description = $row['description'];
+                $img = $row['img'];
+                $price = $row['price'];
+                echo "
                         <div class='recommend-item'>
                             <img src='../upload_img/$img' class='imgOrder' alt='imgOrder' style='width: 100%; height: 250px;'>
                             <h3 class='name-food'>$name</h3>
                             <p class='description'>$description </p>
                             <p class='price'>$price<sub class='city'>EGP</sub></p>
-                            <button class='btn-order' type='submit'>Order Now</button>    
-                        </div>
-                ";
+                        ";
+                if([$_SESSION['user']] !== null)
+                {
+                    echo "
+                             <button id='addToCartButton' class='btn-order' type='submit' onclick='addToCart($id_food)'>Order Now</button>    
+                             </div>
+                            ";
                 }
+            }
         }
         echo "
                 <div class='clear'></div>

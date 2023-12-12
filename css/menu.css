@@ -253,5 +253,10 @@
     margin: 10px;
     font-size: 25px;
     cursor: pointer;
-}
+    transition: background-color 0.3s ease;
 
+}
+.recommended .recommend-content .recommend-item .btn-order:hover {
+    background-color: #e79140;
+    transform: scale(1.05);
+}
