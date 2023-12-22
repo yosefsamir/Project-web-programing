@@ -404,6 +404,17 @@ mix-blend-mode: darken;
 
     background-color: #ED7D31;
 }
+.btn-check{
+    width: 200px;
+    height: 40px;
+    color: white;
+    background-color: #4F4A45;
+    border: none;
+    border-radius: 20px;
+    margin-left: 80px;
+    font-size: 20px;
+    cursor: pointer;
+}
 
 /* ##########################################################################################33 */
 

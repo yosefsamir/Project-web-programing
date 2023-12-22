@@ -12,6 +12,15 @@
         $result = mysqli_query($conn , $sql);
         $row = mysqli_fetch_assoc($result);
         $id = $row['id_client'];
+        // calculate total price from data base;
+        $sql = "SELECT SUM(c.quantity * p.price) AS total_price
+                FROM cart_client c
+                JOIN prouducts p ON c.id_product = p.id_product
+                WHERE c.id_client = '$id'";
+
+        $result = mysqli_query($conn , $sql);
+        $row = mysqli_fetch_assoc($result);
+        $total_price = $row["total_price"];
     }
 ?>
 
@@ -73,7 +82,7 @@
 
                 <div class="account">
                     <li>
-                        <h6>Account</h6>
+                        <a href="index.php"><i class="fa-solid fa-house"></i></a>
                     </li>
                 </div>
             </ul>
@@ -83,7 +92,6 @@
 
 
                 <li class="list_middel">
-
                     <div id="selectfiled">
                         <p id="selecttext">select way</p>
                         <i id="icon1" class="fa-solid fa-angle-down"></i>
@@ -92,27 +100,18 @@
                         <li class="options">
                             <i class="fa-solid fa-bicycle"></i>
 
-                            <p id="mk">delivary</p>
+                            <p id="mk">delivery</p>
                         </li>
                         <li class="options">
                             <i class="fa-solid fa-utensils"></i>
                             <p id="resto">in resto</p>
                         </li>
-
-
                     </ul>
+                </li>
 
                 <li id="add">
-
                     <input type="text" class="address" placeholder="Enter your Location  ">
-
                 </li>
-                </li>
-
-
-
-
-
 
                 <script>
                     var selectfiled = document.getElementById("selectfiled")
@@ -133,18 +132,19 @@
                     }
                 </script>
             </ul>
-            <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-            <script>
+            <!------------------------------------- cart details and orders ------------------------------------->
+            <script> // this function create in cart to load only cart if user add element not download all page ;
                 function addToCart(id_food) {
                     var idClient = <?php echo $id?>;
                     $.ajax({
                         type: "GET",
-                        url: "add_product_cart.php",
+                        url: "menu_add_product_cart.php",
                         data: { id: idClient, id_food: id_food },
                         dataType: "json",
                         success: function (response) {
                             console.log(response);
                             $("#cartContent").load(location.href + " #cartContent");
+                            $("#total").load(location.href + " #total");
                         }
                     });
                     return false;
@@ -180,27 +180,22 @@
                                     $result_product = mysqli_query($conn , $sql);
                                     $product_row = mysqli_fetch_assoc($result_product);
                                     $name = $product_row["name"];
-                                    echo "<p class='details'>$quantity x $name</p>";
+                                    echo "<p class='details'>$quantity x $name</p> ";
                                 }
                             }
                         ?>
                     </ul>
-                    <div class="total">
+                    <div class="total" id="total">
                         <ul>
-                            <li><span id="tot">Tax :</span>
-                                <sapn id="tax"></sapn>
-                            </li>
-                            <li><span id="tot">Total : </span> <sapn class="result"></sapn>
-                            </li>
+                            <li><span id="tot">Total : <?php echo "$total_price"?></span></li>
                         </ul>
                     </div>
                 </div>
+                    <button class="btn-check">Check out</button>
             </div>
         </nav>
-
-
     </aside>
-    <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <!-------------------------------------- Menu details ----------------------------------------------->
 
     <?php
         if(!isset($_GET['cat']))
@@ -225,7 +220,7 @@
                 $price = $row['price'];
                 echo "
                         <div class='recommend-item'>
-                            <img src='../upload_img/$img' class='imgOrder' alt='imgOrder' style='width: 100%; height: 250px;'>
+                            <img src='upload_img/$img' class='imgOrder' alt='imgOrder' style='width: 100%; height: 250px;'>
                             <h3 class='name-food'>$name</h3>
                             <p class='description'>$description </p>
                             <p class='price'>$price<sub class='city'>EGP</sub></p>
@@ -269,15 +264,22 @@
                 $price = $row['price'];
                 echo "
                         <div class='recommend-item'>
-                            <img src='../upload_img/$img' class='imgOrder' alt='imgOrder' style='width: 100%; height: 250px;'>
+                            <img src='upload_img/$img' class='imgOrder' alt='imgOrder' style='width: 100%; height: 250px;'>
                             <h3 class='name-food'>$name</h3>
                             <p class='description'>$description </p>
                             <p class='price'>$price<sub class='city'>EGP</sub></p>
                         ";
-                if(!isset($_SESSION['user']))
+                if(isset($_SESSION['user']))
                 {
                     echo "
                              <button id='addToCartButton' class='btn-order' type='submit' onclick='addToCart($id_food)'>Order Now</button>    
+                             </div>
+                            ";
+                }
+                else
+                {
+                    echo "
+                            <button id='addToCartButton' class='btn-order' type='submit'>Order Now</button>    
                              </div>
                             ";
                 }

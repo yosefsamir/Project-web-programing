@@ -1,5 +1,6 @@
 <?php
-session_start();
+    include "total_order.php";
+    $total_price = calculateTotalPrice();
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +70,7 @@ session_start();
                         <h3 class="hp2">Foods</h3>
                         <p class="p1">Order your Favourite Foods fresh and tasty dish here will be all the components
                            of the dish and all details</p>
-                        <p class="total">Total Order : 85.30 <sub class="city">EGP</sub></p>
+                        <p class="total">Total Order : <?php echo "$total_price"; ?> <sub class="city">EGP</sub></p>
 
                         <button class="order-now"><i class="fa-solid fa-cart-shopping i_order"></i>Order Now <?php
                             if(isset($_SESSION['user']))
