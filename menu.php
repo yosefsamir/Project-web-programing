@@ -47,10 +47,8 @@
 
     </header>
     <aside>
-
         <nav class="fix">
             <ul class="top">
-
                 <li class="name">
                     <h1><span id="res">RES</span><span id="to">TO</span></h1>
                 </li>
@@ -217,7 +215,7 @@
                     <div class='recommend-content'>
             ";
             $sql = "SELECT * FROM prouducts WHERE category = 'meal'";
-            $result = mysqli_query($conn , $sql);
+            $result = mysqli_query($conn , $sql); // اتا
             while ($row = mysqli_fetch_assoc($result))
             {
                 $id_food = $row['id_product'];
@@ -276,7 +274,7 @@
                             <p class='description'>$description </p>
                             <p class='price'>$price<sub class='city'>EGP</sub></p>
                         ";
-                if([$_SESSION['user']] !== null)
+                if(!isset($_SESSION['user']))
                 {
                     echo "
                              <button id='addToCartButton' class='btn-order' type='submit' onclick='addToCart($id_food)'>Order Now</button>    

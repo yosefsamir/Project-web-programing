@@ -8,7 +8,7 @@
         $password   =  filter_var($_POST["password"] , FILTER_SANITIZE_STRING);
         if(empty($phone_number) || empty($password))
         {
-            echo "insert all input in form";
+            echo "<script>alert ('Please Check All input') </script>";
         }
         else
         {
@@ -18,14 +18,14 @@
             $data=$q->fetch();
             if(!$data)
             {
-                echo "error in email or password";
+                echo "<script>alert ('error in email or password') </script>";
             }
             else
             {
                 $password_hash = $data['password'];
                 if(!password_verify($password , $password_hash))
                 {
-                    echo "error in email or password";
+                    echo "<script>alert ('error in email or password') </script>";
                 }
                 else
                 {

@@ -1,3 +1,11 @@
+<?php
+        $dbHost = "localhost";
+        $dbUser = "root";
+        $dbPass = "";
+        $dbName = "restaurant_project";
+        $conn = mysqli_connect($dbHost,$dbUser , $dbPass , $dbName);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,27 +49,40 @@
 </div>
 <!-- products -->
 <!-- table -->
-<table class="table table-hover ml-4 mr-4">
+<div class="content">
+    <table class="table table-hover ml-4 mr-4">
     <thead>
     <tr>
         <th scope="col">client id</th>
         <th scope="col">Name</th>
         <th scope="col">phone-number</th>
-        
+        <th>information</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>shawrma</td>
-        <td>dlakfkdkkafoskaf</td>
-     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-    </tr>
+    <?php
+        $sql = "SELECT * FROM clients";
+        $result = mysqli_query($conn , $sql);
+        $id = 1;
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            $id_db = $row['id_client'];
+            $name1 = $row['first_name'];
+            $name2 = $row['last_name'];
+            $phone = $row['phone'];
+            echo "
+                <tr>
+                    <td>$id</td>
+                    <td>$name1  $name2</td>
+                    <td>$phone</td>
+                    <td><a class='btn-info btn' style='color: white'>sales</a></td>
+                </tr>      
+            ";
+            $id++;
+        }
+    ?>
     </tbody>
 </table>
+</div>
 </body>
 </html>

@@ -15,10 +15,10 @@
         $data=$q->fetch();
         if($data)
         {
-            echo "phone is used before";
+            echo  "<script>alert('phone is used before')</script>";
         }
         else if(empty($first_name) || empty($last_name) || empty($phone_number) || empty($password) || empty($confirm_password))
-            echo "insert all input in form";
+            echo  "<script>alert('all input required')</script>";
         else
         {
             $password = password_hash($password , PASSWORD_DEFAULT);
@@ -104,7 +104,7 @@
 <div class="log-in-form">
     <h1>Sign Up</h1>
     <br>
-    <form action="" method="post" onsubmit="return validateForm()">
+    <form method="post" onsubmit="return validateForm()">
         <div class="input-data-" >
             <input type="text" required placeholder=" First Name" class="Name-input" name="first_name">
             <input type="text" required placeholder=" Last Name" class="Name1-input" name = "last_name">
@@ -112,7 +112,7 @@
     
         <br>
         <div class="input-data">
-            <input type="tel" required placeholder=" Phone Number" class="Phone-input" name="phone_number">
+            <input type="tel" required placeholder=" Phone Number" class="Phone-input" name="phone_number" >
         </div>
         <br>
         <div class="input-data">
