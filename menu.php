@@ -191,7 +191,8 @@
                         </ul>
                     </div>
                 </div>
-                    <button class="btn-check">Check out</button>
+                    
+                    <button class="btn-check" onclick="window.location.href='checkout.php'" >Check out</button>
             </div>
         </nav>
     </aside>

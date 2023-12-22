@@ -83,8 +83,8 @@
                 <div class="line"></div>
             </div>
             <ul class="navbar">
-                <li><a class="f_item"  href="#">Home</a></li>
-                <li><a href="#">menu</a></li>
+                <li><a class="f_item"  href="index.php">Home</a></li>
+                <li><a href="menu.php">menu</a></li>
                 <li><a href="#">Shop</a></li>
             </ul>
             <div class="icons">
