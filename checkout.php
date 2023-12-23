@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css"> 
-
+    <link rel="stylesheet" href="css/checkout.css">
     <link rel="stylesheet" href="/css/all.css">
     <link href="menu">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -81,32 +81,28 @@ else
         $flag = false;
         $id_product = $row["id_product"];
         $quantity = $row["quantity"];
+        $id = $row["id"];
         $sql = "SELECT name, price FROM prouducts WHERE id_product = $id_product";
         $result_product = mysqli_query($conn , $sql);
         $product_row = mysqli_fetch_assoc($result_product);
         $price = $product_row["price"];
         $name = $product_row["name"];
         $final = $quantity * $price ;
-        // echo "<p class='details'>$quantity x $name</p> ";
         echo "<tr>
             <th scope='row'>$quantity</th>
             <td>$name</td>
                 <td>
-                <form method='POST'> 
-                    <button type='button' class='btn btn-danger btn-sm' name = 'cancel'>Cancel</button>
-                </form>
+                <div class='p_m'>
+                     <a href='plus_quantity.php?id=$id' class='a1'><i class='plus fa-regular fa-square-plus'></i></a>
+                     <a href='minus_quantity.php?id=$id' class='a2'><i class='minus fa-regular fa-square-minus'></i></a>
+                </div>           
             </td>
             <td>$quantity x $price = $final </td>
             </tr>" ; 
         }
-        if (isset($_POST["cancel"])) {
-
-        }
-        // include "total_order.php"; 
-        // $total_price = calculateTotalPrice();
         echo "<tr>
         <th></th><th></th>
-        <td scope='row' colspan='3'> Total Price: $total_price</td>
+        <td scope='row' colspan='3' style='font-weight: bold'> Total Price: $total_price</td>
         </tr>" ; 
         if ($flag) {
             // empty cart 
@@ -131,7 +127,9 @@ else
             <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
             <input name="address" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
         </div>
-            <button type="submit class="btn btn-success" name="order-now">Order Now</button>
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-success center" name="order-now">Order Now</button>
+        </div>
     </form>
     
         <?php 

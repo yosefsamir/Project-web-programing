@@ -187,7 +187,15 @@
                     </ul>
                     <div class="total" id="total">
                         <ul>
-                            <li><span id="tot">Total : <?php echo "$total_price"?></span></li>
+                            <li><span id="tot">Total : <?php
+                                    if(isset($_SESSION['user']))
+                                    {
+                                        echo "$total_price";
+                                    }
+                                    else
+                                        echo "0.0";
+                                    ?>
+                                </span></li>
                         </ul>
                     </div>
                 </div>
