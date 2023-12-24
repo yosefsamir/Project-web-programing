@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <title>Home</title>
 </head>
+<script>
+    function goToMenu()
+    {
+        window.location.href = "menu.php";
+    }
+</script>
 <body>
     <script src="js/all.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
@@ -46,7 +52,7 @@
                 <ul class="navbar">
                     <li><a class="f_item"  href="index.php">Home</a></li>
                     <li><a href="menu.php">menu</a></li>
-                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">review</a></li>
                 </ul>
                 <div class="icons">
                     <a href="#"><i class="fa-solid fa-phone"></i></a>
@@ -72,7 +78,7 @@
                            of the dish and all details</p>
                         <p class="total">Total Order : <?php echo "$total_price"; ?> <sub class="city">EGP</sub></p>
 
-                        <button class="order-now"><i class="fa-solid fa-cart-shopping i_order"></i>Order Now <?php
+                        <button class="order-now" onclick="goToMenu()"><i class="fa-solid fa-cart-shopping i_order"></i>Order Now <?php
                             if(isset($_SESSION['user']))
                                 echo $_SESSION['user']['name'];
                             else

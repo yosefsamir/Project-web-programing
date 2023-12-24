@@ -80,15 +80,14 @@ use function PHPSTORM_META\type;
                 $phone_number = $user["phone"];  
             }
             $time_order = $row['time_order'];
-            $payment_method = $row['payment_method'];
             $total_price = $row['total_price'];
             $order_id = $row["id_order"];
             $address = $row["address"];
             $order_time = $row["time_order"];
-            $order_details_link = "order-details.php?order_id=$order_id";
+            $order_details_link = "adminPanel_order-details.php?order_id=$order_id";
 
             echo "<tr>
-                <td><a href='$order_details_link'>$order_id</a></td>
+                <td><a href='$order_details_link' class='btn btn-primary'>$order_id</a></td>
                 <td>$user_fullname</td>
                 <td>$phone_number</td>
                 <td>$address</td>

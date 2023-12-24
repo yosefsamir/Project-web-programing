@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     include "total_order.php";
     $total_price = calculateTotalPrice();
     // session_start();
@@ -42,7 +43,7 @@
                 <div class="clear"></div>
             </div>
 
-            <div class="container">
+            <div class="container" style="width: 65%">
                 <div class="bd-example">
                     <table class="table table-hover">
                         <thead>
@@ -72,9 +73,8 @@ else
     $sql = "SELECT id_client FROM clients WHERE  phone = '$phone'";
     $result = mysqli_query($conn , $sql);
     $row = mysqli_fetch_assoc($result);
-    $id = $row['id_client'];
-    // $id = 
-    $sql = "SELECT * FROM cart_client WHERE id_client = $id";
+    $id_client = $row['id_client'];
+    $sql = "SELECT * FROM cart_client WHERE id_client = $id_client";
     $result = mysqli_query($conn, $sql);
     $flag = true; 
     while ($row = mysqli_fetch_assoc($result)) {
@@ -121,11 +121,11 @@ else
     <form action="" method="POST">
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Phone Number</span>
-            <input name="phone-number" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input name="phone-number" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
-            <input name="address" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input name="address" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
         </div>
         <div style="text-align: center;">
             <button type="submit" class="btn btn-success center" name="order-now">Order Now</button>
@@ -137,40 +137,39 @@ else
         if (isset($_POST["order-now"])) {
             $phone_number = $_POST["phone-number"];
             $address = $_POST["address"];
-            $id;
             $current_time = date("h:i:sa"); 
             // insert record to orders 
             $sql = "insert into orders (id_client, total_price,	phone_number,	time_order,	address )
-            values('$id', '$total_price', '$phone_number','$current_time', '$address'  )";
+            values('$id_client', '$total_price', '$phone_number','$current_time', '$address'  )";
             $res  = mysqli_query($conn ,$sql);
             $last_order_id = $conn->insert_id; 
         
-            $sql = "SELECT * FROM cart_client WHERE id_client = $id";
-        $result = mysqli_query($conn, $sql);
-        // insert record to details_order 
-        while ($row = mysqli_fetch_assoc($result)) {
-            $id_product = $row["id_product"];
-            $quantity = $row["quantity"];
-            $sql = "SELECT name, price, description,category  FROM prouducts WHERE id_product = $id_product";
-            $result_product = mysqli_query($conn , $sql);
-            
-            $product_row = mysqli_fetch_assoc($result_product);
-            $price = $product_row["price"];
-            $name = $product_row["name"];
-            $description = $product_row["description"];
-            $category = $product_row["category"];
-            $sql = "insert into details_order(id_order, quantity, name, description, price, category )
-            values('$last_order_id', '$quantity', '$name' ,'$description','$price',  '$category');
-             ";
-             mysqli_query($conn , $sql);
+            $sql = "SELECT * FROM cart_client WHERE id_client = $id_client";
+            $result = mysqli_query($conn, $sql);
+            // insert record to details_order
+            while ($row = mysqli_fetch_assoc($result)) {
+                $id_product = $row["id_product"];
+                $quantity = $row["quantity"];
+                $sql = "SELECT name, price, description,category  FROM prouducts WHERE id_product = $id_product";
+                $result_product = mysqli_query($conn , $sql);
+
+                $product_row = mysqli_fetch_assoc($result_product);
+                $price = $product_row["price"];
+                $name = $product_row["name"];
+                $description = $product_row["description"];
+                $category = $product_row["category"];
+                $sql = "insert into details_order(id_order, quantity, name, description, price, category )
+                values('$last_order_id', '$quantity', '$name' ,'$description','$price',  '$category');
+                 ";
+                 mysqli_query($conn , $sql);
 
 
         }
-
         // delete from cart 
-        $sql = "delete from cart_client where id_client = $id ";
-        mysqli_query($conn , $sql);
-        header("location: index.php");
+            $sql = "delete from cart_client where id_client = $id_client ";
+            mysqli_query($conn , $sql);
+            header("location: index.php");
+            exit();
     }
         ?>
 
