@@ -46,7 +46,7 @@
             <div class="top">
                 <div class="logo">
                         <h1 class="hp1">RES</h1>
-                        <h1 class="hp2">STO</h1>
+                        <h1 class="hp2">TO</h1>
                         <div class="line"></div>
                 </div>
                 <ul class="navbar">
