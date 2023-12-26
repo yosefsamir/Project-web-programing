@@ -34,7 +34,7 @@
 
                 <script>
                     let rotationAngle = 0;
-                    const rotationSpeed = 1.2; // You can adjust the rotation speed
+                    const rotationSpeed = 0.5; // You can adjust the rotation speed
                     function rotateImage() {
                         rotationAngle += rotationSpeed;
                         document.getElementById('rotateImage').style.transform = `rotate(${rotationAngle}deg)`;
