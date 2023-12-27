@@ -8,6 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/all.css">
     <link href="menu">
@@ -23,6 +24,8 @@
 <body>
     <script src="js/all.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
+    <script src="/js/function.js"></script>
+            <!-------------------------- draw of header-------------------------------->
     <div class="header">
         <div class="content">
             <div class="draw">
@@ -43,6 +46,7 @@
                     setInterval(rotateImage, 25);
                 </script>
             </div>
+            <!-------------------------- Top of header-------------------------------->
             <div class="top">
                 <div class="logo">
                         <h1 class="hp1">RES</h1>
@@ -67,7 +71,7 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            <!--middle of header-->
+            <!-------------------------- middle of header-------------------------------->
             <div class="middle">
                 <div class="left">
                     <div class="items">
@@ -90,7 +94,7 @@
                 </div>
             </div>
         </div>
-    </div>   <!--header-->
+    </div>
 
         <!--section header-->
 <!--    <div class="sectionHeader">-->
@@ -99,7 +103,7 @@
 <!--            <span class="line"></span>-->
 <!--        </div>-->
 <!--    </div>-->
-        <!--section recommended-->
+                    <!-------------------recommended section--------------------------->
     <div class="recommended pd-y">
         <div class="sectionHeader">
             <div class="content">
@@ -136,7 +140,32 @@
 
             </div>
         </div>
-
+    </div>
+                            <!-----------rating section--------------->
+    <div class="review pd-y">
+            <div class="sectionHeader">
+                <div class="content">
+                    <h2 class="sectionTitle">Rate us and taste what you like</h2>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="wrapper">
+                    <form action="#">
+                        <div class = "rating">
+                            <i class='bx bx-star star'></i>
+                            <i class='bx bx-star star'></i>
+                            <i class='bx bx-star star'></i>
+                            <i class='bx bx-star star'></i>
+                            <i class='bx bx-star star'></i>
+                        </div>
+                        <textarea name="opinion" cols="30" rows="5" placeholder="Your opinion.."></textarea>
+                        <div class="btn-group">
+                            <button type = "submit" class="btn submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
     </div>
 </body>
 </html>

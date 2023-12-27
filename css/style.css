@@ -20,6 +20,7 @@ body{
 }
 .pd-y{
     margin-top: 50px;
+    margin-bottom: 50px;
 }
       /*header*/
 .header{
@@ -208,7 +209,7 @@ body{
 }
 
         /*recommend - items*/
-.recommended{
+.recommended .review{
     height: 100vh;
 }
 .recommended .recommend-content .recommend-item{
@@ -256,4 +257,53 @@ body{
     margin: 10px;
     font-size: 25px;
     cursor: pointer;
+}
+
+.review .wrapper{
+    display: flex;
+    align-items: center;
+    min-height: 50vh;
+    background: #f1eeee;
+    width: 100%;
+    border-radius: .75rem;
+    text-align: center;
+}
+
+.review .rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: .5rem;
+    font-size: 2.5rem;
+    color: #f6b000;
+    margin-bottom: 2rem;
+    margin-left: 230%;
+}
+.review .rating .star{
+    cursor: pointer;
+}
+.review .rating .star:hover{
+    transform: scale(1.1);
+}
+.review textarea{
+    width: 220%;
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    resize: none;
+    margin-left: 130%;
+}
+.review .btn-group .btn{
+    margin: 10px;
+    margin-left: 130%;
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #ED7D31;
+    color: white;
+    font-size: 15px;
 }
