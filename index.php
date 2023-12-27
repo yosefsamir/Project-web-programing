@@ -37,7 +37,7 @@
 
                 <script>
                     let rotationAngle = 0;
-                    const rotationSpeed = 1.2; // You can adjust the rotation speed
+                    const rotationSpeed = 0.5; // You can adjust the rotation speed
                     function rotateImage() {
                         rotationAngle += rotationSpeed;
                         document.getElementById('rotateImage').style.transform = `rotate(${rotationAngle}deg)`;
@@ -50,7 +50,7 @@
             <div class="top">
                 <div class="logo">
                         <h1 class="hp1">RES</h1>
-                        <h1 class="hp2">STO</h1>
+                        <h1 class="hp2">TO</h1>
                         <div class="line"></div>
                 </div>
                 <ul class="navbar">
