@@ -2,8 +2,6 @@
     ob_start();
     include "total_order.php";
     $total_price = calculateTotalPrice();
-    // session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -137,13 +135,13 @@ else
         if (isset($_POST["order-now"])) {
             $phone_number = $_POST["phone-number"];
             $address = $_POST["address"];
-            $current_time = date("h:i:sa"); 
+            $date_time = date('Y-m-d h:i:s a');
+            $timestamp = time();
             // insert record to orders 
             $sql = "insert into orders (id_client, total_price,	phone_number,	time_order,	address )
-            values('$id_client', '$total_price', '$phone_number','$current_time', '$address'  )";
+            values('$id_client', '$total_price', '$phone_number','$date_time', '$address'  )";
             $res  = mysqli_query($conn ,$sql);
             $last_order_id = $conn->insert_id; 
-        
             $sql = "SELECT * FROM cart_client WHERE id_client = $id_client";
             $result = mysqli_query($conn, $sql);
             // insert record to details_order
