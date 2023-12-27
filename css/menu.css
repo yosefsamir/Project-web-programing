@@ -6,7 +6,10 @@
 
 }
         /*general*/
+body{
 
+    background-image: url("Shape.png")
+}
 .content{
     margin: auto;
     /* position: relative; */

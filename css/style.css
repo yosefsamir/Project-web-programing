@@ -7,9 +7,7 @@
 }
         /*general*/
 
-body{
-    background-image: url("img/Shape.png");
-}
+
 .content{
     width: 80%;
     margin: auto;
@@ -307,4 +305,8 @@ body{
     background-color: #ED7D31;
     color: white;
     font-size: 15px;
+}
+body{
+
+    background-image: url("Shape.png")
 }

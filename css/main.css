@@ -6,10 +6,7 @@
     font-family: 'Inter', serif;
      
 }
-body{
-    
-    background-image: url("Shape.png");
-}
+
 
 a {
     width: 100%;
@@ -415,7 +412,10 @@ mix-blend-mode: darken;
     font-size: 20px;
     cursor: pointer;
 }
+body{
 
+    background-image: url("Shape.png");
+}
 /* ##########################################################################################33 */
 
 

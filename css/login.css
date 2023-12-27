@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding:0;
+    background-image: url("Shape.png")
 }
 .header .top .navbar .f_item{
     color: #4F4A45;
