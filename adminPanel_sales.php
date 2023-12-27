@@ -15,10 +15,9 @@ use function PHPSTORM_META\type;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/control%20style%20product.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <title>Products</title>
 </head>
 <body>
@@ -87,7 +86,7 @@ use function PHPSTORM_META\type;
             $order_details_link = "adminPanel_order-details.php?order_id=$order_id";
 
             echo "<tr>
-                <td><a href='$order_details_link' class='btn btn-primary'>$order_id</a></td>
+                <td><a href='$order_details_link' class='btn btn-info'>$order_id</a></td>
                 <td>$user_fullname</td>
                 <td>$phone_number</td>
                 <td>$address</td>
