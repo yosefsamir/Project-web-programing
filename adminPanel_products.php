@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/controlstyleproduct.css">
     <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/http_code.jquery.com_jquery-3.6.0.js"></script>
     <script src="js/http_cdnjs.cloudflare.com_ajax_libs_popper.js_2.10.2_umd_popper.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
@@ -38,12 +38,13 @@
 </head>
     <body>
     <script src="js/all.js"></script>
+                    <!------------------ header ------------------>
         <div class="header" style="height: 200px">
             <div class="content">
                 <div class="top">
                     <div class="logo">
                         <h1 class="hp1">RES</h1>
-                        <h1 class="hp2">STO</h1>
+                        <h1 class="hp2">TO</h1>
                         <div class="line"></div>
                     </div>
                     <ul class="navbar">
@@ -65,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <!-- products -->
+                            <!------------------ products ------------------>
         <!-- table -->
     <div class="content" style="width: 90%">
         <!-- add product btn -->
@@ -75,7 +76,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Discritpion</th>
+            <th scope="col">Description</th>
             <th scope="col">Picture</th>
             <th scope="col">Category</th>
             <th scope="col">price</th>
@@ -107,26 +108,25 @@
                             <td>$category</td>
                             <td>$price</td>
                             <td>
-                            <a href='adminPanel_update_product.php?update=$id' class='btn btn-info'>Update</a>
-                            <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#exampleModalCenter_$id' style='color: white'>Delete</button>
-                            <div class='modal fade' id='exampleModalCenter_$id' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
-                            <div class='modal-dialog modal-dialog-centered' role='document'>
-                                <div class='modal-content'>
-                                    <div class='modal-header'>
-                                        <h5 class='modal-title' id='exampleModalLongTitle'>Are you sure to delete this product ? </h5>
-                                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                            <span aria-hidden='true'>&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class='modal-body'>
-                                    </div>
-                                    <div class='modal-footer'>
-                                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                                        <a type='button' class='btn btn-primary' style='color: white' href='adminPanel_deleteItem.php?id=$id'>Delete</a>
+                                <a href='adminPanel_update_product.php?update=$id' class='btn btn-info'>Update</a>
+                                <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#exampleModalCenter_$id' style='color: white'>Delete</button>
+                                <!---------  add model to delete ------------------>
+                                <div class='modal fade' id='exampleModalCenter_$id' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+                                    <div class='modal-dialog modal-dialog-centered' role='document'>
+                                        <div class='modal-content'>
+                                            <div class='modal-header'>
+                                                <h5 class='modal-title' id='exampleModalLongTitle'>Are you sure to delete this product ? </h5>
+                                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                                    <span aria-hidden='true'>&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class='modal-footer'>
+                                                <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                                                <a type='button' class='btn btn-primary' style='color: white' href='adminPanel_deleteItem.php?id=$id'>Delete</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                             </td>
                       </tr>";
                 $counter++;

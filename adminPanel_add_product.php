@@ -56,34 +56,35 @@
     <title>Add Products</title>
 </head>
 <body>
-<script src="js/all.js"></script>
-<div class="header" style="height: 200px">
-    <div class="content">
-        <div class="top">
-            <div class="logo">
-                <h1 class="hp1">RES</h1>
-                <h1 class="hp2">STO</h1>
-                <div class="line"></div>
+    <script src="js/all.js"></script>
+                <!------------------ header ------------------>
+    <div class="header" style="height: 200px">
+        <div class="content">
+            <div class="top">
+                <div class="logo">
+                    <h1 class="hp1">RES</h1>
+                    <h1 class="hp2">STO</h1>
+                    <div class="line"></div>
+                </div>
+                <ul class="navbar">
+                    <li><a href="adminPanel_products.php" class="f_item">product</a></li>
+                    <li><a href="adminPanel_sales.php" >sales</a></li>
+                    <li><a href="adminPanel_clients.php">clients</a></li>
+                </ul>
+                <div class="icons">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <?php
+                    if(isset($_SESSION['user']))
+                        echo '<a href="end_session.php"><i class="fa-solid fa-user"></i></a>';
+                    else
+                        echo '<a href="login.php"><i class="fa-solid fa-right-from-bracket"></i></a>';
+                    ?>
+                </div>
+                <div class="clear"></div>
             </div>
-            <ul class="navbar">
-                <li><a href="adminPanel_products.php" class="f_item">product</a></li>
-                <li><a href="adminPanel_sales.php" >sales</a></li>
-                <li><a href="adminPanel_clients.php">clients</a></li>
-            </ul>
-            <div class="icons">
-                <a href="#"><i class="fa-solid fa-phone"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <?php
-                if(isset($_SESSION['user']))
-                    echo '<a href="end_session.php"><i class="fa-solid fa-user"></i></a>';
-                else
-                    echo '<a href="login.php"><i class="fa-solid fa-right-from-bracket"></i></a>';
-                ?>
-            </div>
-            <div class="clear"></div>
         </div>
     </div>
-</div>
 
     <div class="content">
         <h3 style="color: #4F4A45">Add Product</h3>
