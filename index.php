@@ -116,23 +116,23 @@
 
                 <div class="recommend-item">
                     <img src="/img/img-order.png" class="imgOrder" alt="imgOrder">
-                    <h3 class="name-food">Dish name</h3>
+                    <h3 class="name-food">Grilled Meal</h3>
                     <p class="description">fresh and tasty dish here will be all the components of the dish and all details</p>
-                    <p class="price">85.30 <sub class="city">EGP</sub></p>
+                    <p class="price">210 <sub class="city">EGP</sub></p>
                     <button class="btn-order" type="submit">Order Now</button>
                 </div>
                 <div class="recommend-item mg">
                     <img src="/img/img-order3.png" class="imgOrder" alt="imgOrder">
-                    <h3 class="name-food">Dish name</h3>
+                    <h3 class="name-food">Pasta Meal</h3>
                     <p class="description">fresh and tasty dish here will be all the components of the dish and all details</p>
-                    <p class="price">85.30 <sub class="city">EGP</sub></p>
+                    <p class="price">135 <sub class="city">EGP</sub></p>
                     <button class="btn-order">Order Now</button>
                 </div>
                 <div class="recommend-item">
                     <img src="/img/img-order2.png" class="imgOrder" alt="imgOrder">
-                    <h3 class="name-food">Dish name</h3>
+                    <h3 class="name-food">Chicken Meal</h3>
                     <p class="description">fresh and tasty dish here will be all the components of the dish and all details</p>
-                    <p class="price">85.30 <sub class="city">EGP</sub></p>
+                    <p class="price">110<sub class="city">EGP</sub></p>
                     <button class="btn-order">Order Now</button>
                 </div>
                 <div class="clear"></div>
