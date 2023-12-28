@@ -61,12 +61,10 @@ $dbUser = "root";
 $dbPass = "";
 $dbName = "restaurant_project";
 $conn = mysqli_connect($dbHost,$dbUser , $dbPass , $dbName);
-if(!isset($_SESSION['user']))
-{
+if(!isset($_SESSION['user'])) {
     header("location: login.php");
 }
-else
-{
+else {
     $phone = $_SESSION['user']['phone'];
     $sql = "SELECT id_client FROM clients WHERE  phone = '$phone'";
     $result = mysqli_query($conn , $sql);
@@ -150,7 +148,7 @@ else
                 $quantity = $row["quantity"];
                 $sql = "SELECT name, price, description,category  FROM prouducts WHERE id_product = $id_product";
                 $result_product = mysqli_query($conn , $sql);
-
+               
                 $product_row = mysqli_fetch_assoc($result_product);
                 $price = $product_row["price"];
                 $name = $product_row["name"];

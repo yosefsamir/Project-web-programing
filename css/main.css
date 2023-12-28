@@ -6,6 +6,7 @@
     font-family: 'Inter', serif;
      
 }
+
 body{
     
     background-image: url("Shape.png");
@@ -416,6 +417,63 @@ mix-blend-mode: darken;
     cursor: pointer;
 }
 
+
+.recommended{
+    height: 100vh;
+}
+.recommended .recommend-content .recommend-item{
+    width: 30%;
+    float: left;
+    background-color: #f8f3f3;
+    border-radius: 30px 30px 0 0;
+    text-align: center;
+    margin: 0 17px 30px 17px;
+}
+.recommended .recommend-content .recommend-item .imgOrder{
+    border-radius: 30px 30px 0 0;
+    width: 100%;
+}
+.recommended .recommend-content .recommend-item.mg{
+    margin: 0 5%;
+}
+
+.recommended .recommend-content .recommend-item .name-food{
+    margin: 10px 0 10px 0;
+    font-size: 25px;
+}
+.recommended .recommend-content .recommend-item .description{
+    /* margin: auto; */
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #4F4A45;
+}
+
+.recommended .recommend-content .recommend-item .price{
+    font-size: 25px;
+    margin: 10px;
+}
+.recommended .recommend-content .recommend-item .price .city{
+    color: #4F4A45;
+    font-size: 20px;
+}
+.recommended .recommend-content .recommend-item .btn-order{
+    /* width: auto; */
+    width: 200px;
+    height: 40px;
+    color: white;
+    background-color: #ED7D31;
+    border: none;
+    border-radius: 20px;
+    margin: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+.recommended .recommend-content .recommend-item .btn-order:hover {
+    background-color: #e79140;
+    transform: scale(1.05);
+}
 /* ##########################################################################################33 */
 
 
