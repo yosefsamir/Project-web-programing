@@ -74,7 +74,7 @@
                     <td>$id</td>
                     <td>$name1  $name2</td>
                     <td>$phone</td>
-                    <td><a class='btn-info btn' style='color: white'>sales</a></td>
+                    <td><a class='btn-info btn' href='adminPanel_view_client_orders.php?id=$id_db' style='color: white'>sales</a></td>
                 </tr>      
             ";
             $id++;
